@@ -6,7 +6,7 @@ Phoenix Rumbl App based on example from https://pragprog.com/book/phoenix/progra
 
 ## Project Status
 
-Work In Progress.
+Work In Progress. In Chapter 4. Ecto and Changesets Page 66.
 
 To start your Phoenix app:
 
