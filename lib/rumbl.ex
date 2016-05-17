@@ -7,11 +7,11 @@ defmodule Rumbl do
     import Supervisor.Spec, warn: true
 
     children = [
-  # #     # Start the endpoint when the application starts
+  #     # Start the endpoint when the application starts
   #     # THIS WAS COMMENTED OUT, FILE IS NO LONGER AN ECTO REPO =>
+  # If hard coding a repo, comment over the ELixir supervisor and the worker.
   supervisor(Rumbl.Endpoint, []),
-  # #     # Start the Ecto repository
-  # #     # THIS WAS COMMENTED OUT, FILE IS NO LONGER AN ECTO REPO =>   # worker(Rumbl.Repo, []),
+  worker(Rumbl.Repo, []),
   # #     # Here you could define other workers and supervisors as children
   # #     # worker(Rumbl.Worker, [arg1, arg2, arg3]),
     ]
