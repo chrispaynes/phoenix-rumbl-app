@@ -30,5 +30,3 @@
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
-
-<%= content_tag :p, class: "test" do %>
