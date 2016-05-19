@@ -6,7 +6,14 @@ Phoenix Rumbl App based on example from https://pragprog.com/book/phoenix/progra
 
 ## Project Status
 
-Work In Progress. In Chapter 4. Ecto and Changesets Page 66.
+Work In Progress. In Chapter 4. Ecto and Changesets Page 67.
+Upgraded from {:phoenix_html, "~> 2.1"} to {:phoenix_html, "~> 2.3"}
+http://www.phoenixframework.org/blog/upgrading-from-v10-to-v11
+Enabled ErrorHelpers/2 and Changeset
+Added gettext dependency
+Added web/gettext.ex
+Added web/views/changset_view.ex
+Added web/views/error_helpers.ex
 
 To start your Phoenix app:
 
