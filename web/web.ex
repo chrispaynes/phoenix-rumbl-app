@@ -49,8 +49,8 @@ defmodule Rumbl.Web do
       use Phoenix.HTML
 
       import Rumbl.Router.Helpers
-      # import Rumbl.ErrorHelpers
-      # import Rumbl.Gettext
+      import Rumbl.ErrorHelpers
+      import Rumbl.Gettext
     end
   end
 
