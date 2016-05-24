@@ -14,12 +14,12 @@ defmodule Rumbl.Mixfile do
   end
 
   # Configuration for the OTP application.
-  #
+  # This is the collection of modules that form the app
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Rumbl, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger,
-                    :phoenix_ecto, :gettext, :postgrex]]
+                    :phoenix_ecto, :gettext, :postgrex, :comeonin]]
   end
 
   # Specifies which paths to compile per environment.
@@ -36,7 +36,9 @@ defmodule Rumbl.Mixfile do
      {:phoenix_html, "~> 2.3"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:cowboy, "~> 1.0"},
-     {:gettext, "~> 0.9"}]
+     {:gettext, "~> 0.9"},
+     {:comeonin, "~> 2.0"}
+   ]
   end
 
   # Aliases are shortcut or tasks specific to the current project.
