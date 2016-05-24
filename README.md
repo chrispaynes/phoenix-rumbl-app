@@ -1,21 +1,29 @@
-# Rumbl
+# Rumbl App
 
 ## Project Description
 
-Phoenix Rumbl App based on example from https://pragprog.com/book/phoenix/programming-phoenix
+Phoenix Rumbl App based on code from [Programming Phoenix]( https://pragprog.com/book/phoenix/programming-phoenix "Programming Phoenix").
 
-## Project Status
 
-Work In Progress. In Chapter 4. Ecto and Changesets Page 67.
-Upgraded from {:phoenix_html, "~> 2.1"} to {:phoenix_html, "~> 2.3"}
+## Project Status - Work In Progress
+
+###Chapter 5 - Authenticating Users - Page 73
+1. Installed :comeonin dependency
+2. Added :comeonin dependency as an application module
+3. Created def registration_changeset
+4. Created defp put_pass_hash(changeset)
+5. Hashed Passwords for previous users in DB
+
+###Chapter 4 - Ecto and Changesets
+1. Upgraded from {:phoenix_html, "~> 2.1"} to {:phoenix_html, "~> 2.3"}
 http://www.phoenixframework.org/blog/upgrading-from-v10-to-v11
-Enabled ErrorHelpers/2 and Changeset
-Added gettext dependency
-Added web/gettext.ex
-Added web/views/changset_view.ex
-Added web/views/error_helpers.ex
+2. Enabled ErrorHelpers/2 and Changeset
+3. Added :gettext dependency
+4. Added web/gettext.ex
+5. Added web/views/changset_view.ex
+6. Added web/views/error_helpers.ex
 
-To start your Phoenix app:
+##To start your Phoenix app:
 
   1. Install dependencies with `mix deps.get`
   2. Create and migrate your database with `mix ecto.create && mix ecto.migrate`
