@@ -23,13 +23,14 @@ defmodule Rumbl.UserController do
 
     #creates a new user
     #reacts to {:error, changeset}
-    #if the registration_changeset is valid, the new user is created and displayed
+    #if the registration_changeset is valid, the new user is created, logged in and displayed
     #if the registration_changeset fails, the errors are rendered
     def create(conn, %{"user" => user_params}) do
       changeset = User.registration_changeset(%User{}, user_params)
       case Repo.insert(changeset) do
         {:ok, user} ->
           conn
+          |> Rumbl.Auth.login(user)
           |> put_flash(:info, "#{user.name} created!")
           |> redirect(to: user_path(conn, :index))        
         {:error, changeset} ->
