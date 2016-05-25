@@ -7,12 +7,17 @@ Phoenix Rumbl App based on code from [Programming Phoenix]( https://pragprog.com
 
 ## Project Status - Work In Progress
 
-###Chapter 5 - Authenticating Users - Page 73
+###Chapter 5 - Authenticating Users - Page 81
 1. Installed :comeonin dependency
 2. Added :comeonin dependency as an application module
 3. Created def registration_changeset
 4. Created defp put_pass_hash(changeset)
 5. Hashed Passwords for previous users in DB
+6. Update user_controller to use def registration_changeset
+7. Create Authentification Plug for logging users in and out
+8. Add Plug to router.ex
+9. Define authenticate function plug in user_controller
+10. Send connection through authenticate function plug at start of user_controller
 
 ###Chapter 4 - Ecto and Changesets
 1. Upgraded from {:phoenix_html, "~> 2.1"} to {:phoenix_html, "~> 2.3"}
