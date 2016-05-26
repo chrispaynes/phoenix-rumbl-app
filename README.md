@@ -18,6 +18,14 @@ Phoenix Rumbl App based on code from [Programming Phoenix]( https://pragprog.com
 8. Add Plug to router.ex
 9. Define authenticate function plug in user_controller
 10. Send connection through authenticate function plug at start of user_controller
+11. Add login functionality for users
+12. Add def login to auth.ex
+13. Pipe new users through def login
+14. Add "/sessons" resources to web/router.ex to implement login/logout functionality
+15. Create SessionController to render login form and redirect users after login
+16. Create def login_by_username_and_pass in auth.ex
+17. Create session_view.ex
+16. Create session/new template to show login form
 
 ###Chapter 4 - Ecto and Changesets
 1. Upgraded from {:phoenix_html, "~> 2.1"} to {:phoenix_html, "~> 2.3"}
