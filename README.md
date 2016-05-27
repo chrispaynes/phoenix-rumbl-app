@@ -7,7 +7,9 @@ Phoenix Rumbl App based on code from [Programming Phoenix]( https://pragprog.com
 
 ## Project Status - Work In Progress
 
-###Chapter 5 - Authenticating Users - Page 81
+###Chapter 6 - Generators and Relationships - Page 91
+
+###Chapter 5 - Authenticating Users
 1. Installed :comeonin dependency
 2. Added :comeonin dependency as an application module
 3. Created def registration_changeset
@@ -22,10 +24,13 @@ Phoenix Rumbl App based on code from [Programming Phoenix]( https://pragprog.com
 12. Add def login to auth.ex
 13. Pipe new users through def login
 14. Add "/sessons" resources to web/router.ex to implement login/logout functionality
-15. Create SessionController to render login form and redirect users after login
-16. Create def login_by_username_and_pass in auth.ex
-17. Create session_view.ex
-16. Create session/new template to show login form
+15. Add SessionController to render login form and redirect users after login
+16. Add def login_by_username_and_pass in auth.ex
+17. Add session_view.ex
+18. Add session/new template to show login form
+19. Add Register and login features to app.html
+20. Add def logout to auth.ex and controller action to session_controller
+21. Updated NPM Dependencies(Brunch and Babel-Brunch) & Mix Dependencies(Phoenix and Phoenix_HTML)
 
 ###Chapter 4 - Ecto and Changesets
 1. Upgraded from {:phoenix_html, "~> 2.1"} to {:phoenix_html, "~> 2.3"}
