@@ -3,6 +3,7 @@ defmodule Rumbl.Auth do
   # checkpw checks the password
   # dummy_checkpw simulates a password check with variable timing
   import Comeonin.Bcrypt, only: [checkpw: 2, dummy_checkpw: 0]
+  import Phoenix.Controller
 
   # raises exception if :repo does not exist
   def init(opts) do
@@ -47,5 +48,10 @@ defmodule Rumbl.Auth do
         {:error, :not_found, conn}  
     end
   end
+
+  # deletes the current sessions
+  def logout(conn) do
+    configure_session(conn, drop: true)
+  end  
 
 end
