@@ -2,7 +2,7 @@ defmodule Rumbl.UserController do
     use Rumbl.Web, :controller
 
     #sends connection through authenticate function plug when using :index or :show
-    plug :authenticate when action in [:index, :show]
+    plug :authenticate_user when action in [:index, :show]
 
     def index(conn, _params) do
         users = Repo.all(Rumbl.User)
@@ -43,21 +43,22 @@ defmodule Rumbl.UserController do
       # |> redirect(to: user_path(conn, :index))
     end
 
+    # DEFP AUTHENTICATE MOVED TO AUTH.EX AS DEF AUTHENTICATE_USERS
     # function plug to restrict access to pages containing user index or user info
     # users must be logged in to view the index or user info
     # connects if there is a current user logged into the session
     # else halt any downstream plug transformations
     # flashes error message
-    defp authenticate(conn, _opts) do
-      if conn.assigns.current_user do
-        conn
-      else
-        conn
-        |> put_flash(:error, "You must be logged in to access that page")
-        |> redirect(to: page_path(conn, :index))
-        |> halt()
-      end
-    end
+    # defp authenticate(conn, _opts) do
+    #   if conn.assigns.current_user do
+    #     conn
+    #   else
+    #     conn
+    #     |> put_flash(:error, "You must be logged in to access that page")
+    #     |> redirect(to: page_path(conn, :index))
+    #     |> halt()
+    #   end
+    # end
 
 end
 
