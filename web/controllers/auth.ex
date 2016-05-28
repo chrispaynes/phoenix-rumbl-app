@@ -4,6 +4,24 @@ defmodule Rumbl.Auth do
   # dummy_checkpw simulates a password check with variable timing
   import Comeonin.Bcrypt, only: [checkpw: 2, dummy_checkpw: 0]
   import Phoenix.Controller
+  alias Rumbl.Router.Helpers
+
+
+  # function plug to restrict access to pages containing user index or user info
+  # users must be logged in to view the index or user info
+  # connects if there is a current user logged into the session
+  # else halt any downstream plug transformations
+  # flashes error message
+  def authenticate_user(conn, _opts) do
+    if conn.assigns.current_user do
+      conn
+    else
+      conn
+      |> put_flash(:error, "You must be logged in to access that page")
+      |> redirect(to: Helpers.page_path(conn, :index))
+      |> halt()
+    end
+  end
 
   # raises exception if :repo does not exist
   def init(opts) do
