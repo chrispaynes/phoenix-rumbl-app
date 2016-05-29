@@ -6,12 +6,15 @@ defmodule Rumbl.Video do
     field :title, :string
     field :description, :string
     belongs_to :user, Rumbl.User
+    # creates belongs-to relationship for optional category_id field
+    belongs_to :category, Rumbl.Category
 
     timestamps
   end
 
   @required_fields ~w(url title description)
-  @optional_fields ~w()
+  # creates new optional field for a category_id
+  @optional_fields ~w(category_id)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
