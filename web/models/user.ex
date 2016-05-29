@@ -1,10 +1,10 @@
-# struct is an ELX abstraction for working with structured data
-# structs are built upon maps
-# structs help overcome a pitfall of maps
+# structs are built upon maps built helpt overcome their pitfalls
 # maps only protect against misspelled key values accessed at runtime
 # structs indicate errors earlier during compilation
-# structs fills in remaining values for keys without a value
+# structs fill in remaining values for keys without a value
 
+
+#each user has a one-to-many relationship with a video
 defmodule Rumbl.User do
   use Rumbl.Web, :model
       schema "users" do
@@ -12,6 +12,7 @@ defmodule Rumbl.User do
         field :username, :string
         field :password, :string, virtual: true
         field :password_hash, :string
+        has_many :videos, Rumbl.Video        
 
         timestamps
   end
