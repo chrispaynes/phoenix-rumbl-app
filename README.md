@@ -7,8 +7,23 @@ Phoenix Rumbl App based on code from [Programming Phoenix]( https://pragprog.com
 
 ## Project Status - Work In Progress
 
+###Chapter 8 - Testing MVC - Page 129
 
-###Chapter 7 - Ecto Queries and Constraints - Page 107
+###Chapter 7 - Ecto Queries and Constraints
+1. Generate category model using "mix phoenix.gen.model"
+2. Update create_category.exs migration file
+3. Add referential constraints to Video schema
+4. Generate a migration for add_category_id_to_video
+5. Make database enforce constraint between videos and categories in create_category.exs
+6. Migrate migrations to database
+7. Create database seeds for video category names in /priv/repo/seeds.exs
+8. Hydrate the database using "mix run priv/repo/seeds.exs" 
+9. Update priv/repo/seeds.exs to prevent duplicating categories
+10. Create query functions in web/models/category.ex to sort and fetch categories
+11. Create load_categories function plug in video_controller
+12. Add category dropdown menu to web/templates/video/form.html.eex
+13. Add @categories to web/templates/video/-new AND -edit.html.eex
+14. Convert foreign-key constraint errors to readable error messages in web/models/video.ex
 
 ###Chapter 6 - Generators and Relationships
 1. Scaffold Video module with phoenix.gen.html mix task
