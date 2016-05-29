@@ -85,6 +85,21 @@ defmodule Rumbl.VideoController do
     assoc(user, :videos)
   end
 
+  alias Rumbl.Category
+
+  plug :load_categories when action in [:new, :create, :edit, :update]
+
+  # creates load_categories plug based on functions in Category model
+  # builds a query and passes it to Repo
+  defp load_categories(conn, _) do
+    query =
+      Category
+      |> Category.alphabetical
+      |> Category.names_and_ids
+    categories = Repo.all query
+    assign(conn, :categories, categories)
+  end
+
   # modifies default controller action -- this should be last in the module pipeline
   # applies every actions of the current session user to the module
   def action(conn, _)do
