@@ -7,13 +7,21 @@ Phoenix Rumbl App based on code from [Programming Phoenix]( https://pragprog.com
 
 ## Project Status - Work In Progress
 
-###Chapter 6 - Generators and Relationships - Page 97
+
+###Chapter 7 - Ecto Queries and Constraints - Page 107
+
+###Chapter 6 - Generators and Relationships
 1. Scaffold Video module with phoenix.gen.html mix task
 2. Move defp authenticate from session_controller to auth.ex
 3. Share def authenticate_user with all controllers and router within web.ex
 4. Update :authenticate plug to authenticate_user in UserController
 5. Define new scope "/manage" to contain video resources
 6. Run ecto.migrate to update Repo with new Video Models
+7. Update user.ex model schema have one-to-many relationship with videos
+8. Link new and create video actions with current session user
+9. Modify the default action for the video_controller
+10. Create defp user_videos in video_controller
+11. Update dep -index, -show, -edit, -update, and -delete to user depf user_videos
 
 ###Chapter 5 - Authenticating Users
 1. Installed :comeonin dependency
