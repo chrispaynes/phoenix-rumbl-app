@@ -20,4 +20,15 @@ defmodule Rumbl.Category do
     model
     |> cast(params, @required_fields, @optional_fields)
   end
+
+  # sorts categories alphabetically
+  def alphabetical(query) do
+    from c in query, order_by: c.name
+  end
+
+  # fetches categories by name and id
+  def names_and_ids(query) do
+    from c in query, select: {c.name, c.id}
+  end
+
 end
