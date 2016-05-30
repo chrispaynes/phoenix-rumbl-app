@@ -25,12 +25,14 @@ defmodule Rumbl.Web do
       import Ecto.Query, only: [from: 1, from: 2]
     end
   end
+  
 
   def controller do
     quote do
       use Phoenix.Controller
 
       alias Rumbl.Repo
+      alias Rumbl.User
       import Ecto
       import Ecto.Query, only: [from: 1, from: 2]
 
@@ -39,6 +41,7 @@ defmodule Rumbl.Web do
       import Rumbl.Auth, only: [authenticate_user: 2]
     end
   end
+
 
   def view do
     quote do
