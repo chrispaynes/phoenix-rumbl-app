@@ -23,7 +23,8 @@ Phoenix Rumbl App based on code from [Programming Phoenix]( https://pragprog.com
 11. Create load_categories function plug in video_controller
 12. Add category dropdown menu to web/templates/video/form.html.eex
 13. Add @categories to web/templates/video/-new AND -edit.html.eex
-14. Convert foreign-key constraint errors to readable error messages in web/models/video.ex
+14. Add changeset error message to web/models/user.ex
+15. Convert foreign-key constraint errors to readable error messages in web/models/video.ex
 
 ###Chapter 6 - Generators and Relationships
 1. Scaffold Video module with phoenix.gen.html mix task
