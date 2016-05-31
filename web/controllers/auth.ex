@@ -33,8 +33,16 @@ defmodule Rumbl.Auth do
   # assigns session user_id and user_id from repo to the current user
   def call(conn, repo) do
     user_id = get_session(conn, :user_id)
-    user    = user_id && repo.get(Rumbl.User, user_id)
-    assign(conn, :current_user, user)
+
+    cond do
+      user = conn.assigns[:current_user] ->
+        conn
+      user = user_id && repo.get(Rumbl.User, user_id) ->
+        assign(conn, :current_user, user)
+      true ->
+        assign(conn, :current_user, nil)  
+    end
+    
   end
 
   # receives conn and user and stores user id in session
