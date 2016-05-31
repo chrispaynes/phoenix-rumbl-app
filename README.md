@@ -1,13 +1,57 @@
 # Rumbl App
 
-## Project Description
-
 Phoenix Rumbl App based on code from [Programming Phoenix]( https://pragprog.com/book/phoenix/programming-phoenix "Programming Phoenix").
 
 
-## Project Status - Work In Progress
+# Project Status - Work In Progress
 
-###Chapter 8 - Testing MVC - Page 129
+
+##Part II: Writing Interactive and Maintainable Applications
+###Chapter 9 - Watching Videos - Page 158
+1. 
+
+##Part I: Building With Functional MVC
+###Chapter 8 - Testing MVC
+1. Update assert in test/controllers/page_controller_test.exs
+2. Create test data with test/support/test_helpers.ex
+3. Import test_helpers and Ecto.Changeset in test/support/conn_case.ex
+4. Create build new test/controllers/video_controller_test.exs
+6. Configure setup in video_controller_test to grab config map
+7. Implement the tag module in video_controller_test
+8. Corrected scope for "resources "/videos", VideoController" in web/router.ex
+
+> <b>Testing Plugs</b>
+
+10. Validate other users cannot view, edit, update or destroy another user's videos
+11. Create test/controllers/auth_test.exs to test the authentication plug
+12. Add setup block to test/controllers/auth_test.exs 
+13. Create login and tests
+14. Create user assigns placement test
+15. Create nil user session call test
+16. Create test for valid username and password
+17. Create test for not found user
+18. Create test for login with password mismatch
+19. Reduce password hashing rounds
+
+> <b>Testing Views and Templates</b>
+
+20. Create test to ensure videoView renders index.html
+21. Create test to ensure videoView renders new.html
+
+> <b>Testing Models</b>
+
+22. Import TestHelpers to test/support/model_case.ex
+23. Create test/models/user_test.exs for side effect free test
+24. Create test for changeset with valid and invalid attributes
+25. Create test to verify usernames are not too long
+26. Create test for user password length
+27. Create test to verify password hashes
+28. Create test/models/user_repo_test.exs for user tests with side effects
+29. Create test to verify unique_constraints on usernames are converted to an error
+30. Create test/models/category_repo_test.exs for category tests with side effects
+31. Create test to verify alphabetical/1 orders by name properly
+
+
 
 ###Chapter 7 - Ecto Queries and Constraints
 1. Generate category model using "mix phoenix.gen.model"
