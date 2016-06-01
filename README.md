@@ -7,8 +7,13 @@ Phoenix Rumbl App based on code from [Programming Phoenix]( https://pragprog.com
 
 
 ##Part II: Writing Interactive and Maintainable Applications
-###Chapter 9 - Watching Videos - Page 158
-1. 
+###Chapter 9 - Watching Videos - Page 160
+1. Add link to "My Videos" in web/templates/layout/app.html.eex
+2. Create watch_controller to allow any user to watching videos
+3. Create web/templates/watch/show.html.eex to display videos
+4. Create web/views/watch_view.ex
+5. Add get /watch/:id to the :browser pipeline in router 
+6. Replace "show" button with "watch" and links to watch_path(...)
 
 ##Part I: Building With Functional MVC
 ###Chapter 8 - Testing MVC
