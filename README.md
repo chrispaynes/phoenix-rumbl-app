@@ -7,7 +7,10 @@ Phoenix Rumbl App based on code from [Programming Phoenix]( https://pragprog.com
 
 
 ##Part II: Writing Interactive and Maintainable Applications
-###Chapter 9 - Watching Videos - Page 164
+###Chapter 10 - Using Channels - Page 173
+
+
+###Chapter 9 - Watching Videos
 1. Add link to "My Videos" in web/templates/layout/app.html.eex
 2. Create watch_controller to allow any user to watching videos
 3. Create web/templates/watch/show.html.eex to display videos
@@ -17,6 +20,15 @@ Phoenix Rumbl App based on code from [Programming Phoenix]( https://pragprog.com
 7. Create a JavaScript player object to embed video in web/static/js/player.js
 8. Import js/player.js into app.js
 9. Create css/video.css
+10. Add slug column to database
+11. Create add_slug_to_video migration
+12. Migrate the changes to the DB
+13. Add the :slug to the video schema
+14. Update the video changeset
+15. Create private slugify_title() and slugify() functions in web/models/video.ex
+15. Implement Phoenix.Param for Rumbl.Video
+16. Create Rumbl.Permalink custom type
+17. Customize video model primary key to use Rumbl.Permalink
 
 ##Part I: Building With Functional MVC
 ###Chapter 8 - Testing MVC
