@@ -7,7 +7,10 @@ Phoenix Rumbl App based on code from [Programming Phoenix]( https://pragprog.com
 
 
 ##Part II: Writing Interactive and Maintainable Applications
-###Chapter 10 - Using Channels - Page 173
+###Chapter 10 - Using Channels - Page 180
+1. Create ES6 video object
+2. Update video player to use video object in web/static/js/app.js
+3. Refactor a web/static/js/socket.js
 
 
 ###Chapter 9 - Watching Videos
