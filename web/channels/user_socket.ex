@@ -3,6 +3,12 @@ defmodule Rumbl.UserSocket do
 
   ## Channels
   # channel "rooms:*", Rumbl.RoomChannel
+  
+  # routes events into UserSocket
+  # dispatches events channels based on patterns declared in the channel macro
+  # categorizes videos with a resource name followed by their ID
+  channel "videos:*", Rumbl.VideoChannel
+  
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
@@ -34,4 +40,5 @@ defmodule Rumbl.UserSocket do
   #
   # Returning `nil` makes this socket anonymous.
   def id(_socket), do: nil
+
 end
