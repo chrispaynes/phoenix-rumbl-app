@@ -1,6 +1,9 @@
 defmodule Rumbl.Endpoint do
   use Phoenix.Endpoint, otp_app: :rumbl
 
+  # this is the starting point for all socket connections
+  # responsible for authenticating
+  # configures default socket information for all channels
   socket "/socket", Rumbl.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
