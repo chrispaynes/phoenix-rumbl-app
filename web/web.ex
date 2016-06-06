@@ -72,8 +72,9 @@ defmodule Rumbl.Web do
       use Phoenix.Channel
 
       alias Rumbl.Repo
-      import Ecto.Model
+      import Ecto
       import Ecto.Query, only: [from: 1, from: 2]
+      import Rumbl.Gettext
     end
   end
 
