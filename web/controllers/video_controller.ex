@@ -2,10 +2,13 @@ defmodule Rumbl.VideoController do
   use Rumbl.Web, :controller
 
   alias Rumbl.Video
+  alias Rumbl.Category
 
   #VideoController Pipeline
   #checks and transforms empty strings into nil for “video” parameter data
   plug :scrub_params, "video" when action in [:create, :update]
+  plug :load_categories when action in [:new, :create, :edit, :update]
+  
 
   # displays all videos scoped to user
   def index(conn, _params, user) do
