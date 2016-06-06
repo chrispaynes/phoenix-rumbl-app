@@ -12,6 +12,7 @@ defmodule Rumbl.Video do
     belongs_to :user, Rumbl.User
     # creates belongs-to relationship for optional category_id field
     belongs_to :category, Rumbl.Category
+    has_many :annotations, Rumbl.Annotation
 
     timestamps
   end
@@ -22,7 +23,6 @@ defmodule Rumbl.Video do
 
   @doc """
   Creates a changeset based on the `model` and `params`.
-
   If no params are provided, an invalid changeset is returned
   with no validation performed.
   """
