@@ -36,22 +36,32 @@ defmodule Rumbl.Auth do
 
     cond do
       user = conn.assigns[:current_user] ->
-        conn
+        put_current_user(conn, user)
       user = user_id && repo.get(Rumbl.User, user_id) ->
-        assign(conn, :current_user, user)
+        put_current_user(conn, user)
       true ->
         assign(conn, :current_user, nil)  
     end
-    
   end
 
   # receives conn and user and stores user id in session
   # sends session cookie back to client with new identifier
   def login(conn, user) do
     conn
-    |> assign(:current_user, user)
+    |> put_current_user(user)
     |> put_session(:user_id, user.id)
     |> configure_session(renew: true)
+  end
+
+  # places new user token and current user into conn.assigns
+  # sets current user and user token when a user session exists
+  # user_token holds the signed in ID user 
+  defp put_current_user(conn, user) do
+    token = Phoenix.Token.sign(conn, "user socket", user.id)
+
+    conn
+    |> assign(:current_user, user)
+    |> assign(:user_token, token)
   end
 
 
@@ -77,7 +87,11 @@ defmodule Rumbl.Auth do
 
   # deletes the current sessions
   def logout(conn) do
-    configure_session(conn, drop: true)
+    # configure_session/2 is the default code from the Programming Phoenix Book
+    # configure_session(conn, drop: true)
+    
+    # delete_session/2 allows us to use a put_flash message
+    delete_session(conn, :user_id)
   end  
 
 end
