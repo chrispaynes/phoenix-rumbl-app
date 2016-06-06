@@ -10,7 +10,7 @@ import {Socket} from "phoenix"
 let socket = new Socket("/socket", {
   params: {token: window.userToken},
   logger: (kind, msg, data) => { console.log(`${kind}: ${msg}`, data) }
-})
+});
 
 // When you connect, you'll often need to authenticate the client.
 // For example, imagine you have an authentication plug, `MyAuth`,
@@ -64,4 +64,4 @@ let socket = new Socket("/socket", {
 //   .receive("ok", resp => { console.log("Joined successfully", resp) })
 //   .receive("error", resp => { console.log("Unable to join", resp) })
 
-export default socket
+export default socket;
