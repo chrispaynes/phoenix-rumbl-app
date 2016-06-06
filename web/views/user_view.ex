@@ -8,9 +8,8 @@ defmodule Rumbl.UserView do
         |> Enum.at(0)
     end
 
-    def last_name(%User{name: name}) do
-        name 
-        |> String.split(" ")
-        |> Enum.at(1)
-    end    
+    # renders user.json to view user's who submit annotation in chat
+    def render("user.json", %{user: user}) do
+      %{id: user.id, username: user.username}
+    end 
 end
