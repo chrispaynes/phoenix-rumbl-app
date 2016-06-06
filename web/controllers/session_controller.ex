@@ -28,6 +28,8 @@ defmodule Rumbl.SessionController do
   def delete(conn, _) do
     conn
     |> Rumbl.Auth.logout()
+    # put_flash only works if def logout/1 performs "delete_session(conn, :user_id)" in web/controllers/auth.ex
+    |> put_flash(:info, "You have been logged out")    
     |> redirect(to: page_path(conn, :index))
   end
 
