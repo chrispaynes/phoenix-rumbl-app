@@ -72,7 +72,6 @@ let Video = {
         console.log("joined the video channel", resp)
       })
       .receive("error", reason => console.log("failed to join the video channel", reason) )
-
   },
 
   // creates div and child node to contain messages
