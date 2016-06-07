@@ -6,17 +6,22 @@ defmodule Rumbl.VideoChannel do
   # callback function authorizing or denying user channel access
   # assigns user to the socket matching the video ID
   # socket.assigns holds the state for the socket
-  def join("videos:" <> video_id, _params, socket) do
+  # stores the id for a user's last_seen video
+  # OR stores a "0" id for new users who have not seen a video
+  # returns annotations with id's greater than the last_seen_id
+  def join("videos:" <> video_id, params, socket) do
+    last_seen_id = params["last_seen_id"] || 0
     video_id = String.to_integer(video_id)
     video = Repo.get!(Rumbl.Video, video_id)
     annotations = Repo.all(
       from a in assoc(video, :annotations),
+      where: a.id > ^last_seen_id,
       order_by: [asc: a.at, asc: a.id],
       limit: 200,
       preload: [:user]
     )
 
-    resp = %{annotations: Phoenix.View.render_many(annotations, AnnotationView, "annotation.json")}
+    resp = %{annotations: Phoenix.View.render_many(annotations, AnnotationView, "annotation.json")};
 
     {:ok, resp, assign(socket, :video_id, video_id)}
   end
