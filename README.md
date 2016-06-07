@@ -145,6 +145,23 @@ http://www.phoenixframework.org/blog/upgrading-from-v10-to-v11
 5. Added web/views/changset_view.ex
 6. Added web/views/error_helpers.ex
 
+###Chapter 3 - Controllers, Views, and Templates
+1. Mix a new Phoenix Application and name it rumbl
+2. Configure Ecto database
+3. Rework jumbotron message in web/templates/page/index.html.eex
+4. Hard code in Rumbl.User data in web/models/user.ex
+5. Rework lib/rumbl/repo.ex to use an "in memory repository"
+6. Define and populate a def all() Rumbl.User data structure
+7. Create def get() and def get_by() to retrieve user data
+8. Create user routes in web/router.ex
+9. Create a user controller in web/controllers/user_controller.ex
+10. Create a user view in views/user_view.ex
+11. Create a user/index template in web/templates/user/index.html.eex
+12. Add def show() action to web/controllers/user_controller.ex
+13. Create a /users/:id template in web/templates/user/show.html
+14. Create a user template in web/templates/user/user.html.eex
+15. Rework web/templates/page/index.html.eex to render "user.html"
+
 ###Chapter 2 - The Lay of the Land
 Note: This chapter covers installation and provides basic Elixir and Phoenix tutorials.
 Complete steps 1-5 prior to building the Rumbl App.
