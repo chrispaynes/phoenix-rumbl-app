@@ -145,7 +145,10 @@ http://www.phoenixframework.org/blog/upgrading-from-v10-to-v11
 5. Added web/views/changset_view.ex
 6. Added web/views/error_helpers.ex
 
-###Chapter 1 - Installing Your Development Environment
+###Chapter 2 - The Lay of the Land
+Note: This chapter covers installation and provides basic Elixir and Phoenix tutorials.
+Complete steps 1-5 prior to building the Rumbl App.
+
 1. Install Elixir >=1.1.0
 2. Install the Hex Package Manager
 3. Install >=PostgreSQL
