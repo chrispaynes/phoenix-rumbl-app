@@ -145,6 +145,22 @@ http://www.phoenixframework.org/blog/upgrading-from-v10-to-v11
 5. Added web/views/changset_view.ex
 6. Added web/views/error_helpers.ex
 
+###Chapter 1 - Installing Your Development Environment
+1. Install Elixir >=1.1.0
+2. Install the Hex Package Manager
+3. Install >=PostgreSQL
+4. Install Node >=5.3.0
+5. Install the Phoenix Archive
+6. Mix a new Phoenix App
+7. Mix Phoenix dependencies
+8. Mix Ecto.Create
+9. Add Routes for HelloController and PageController in web/router.ex
+10. Create HelloController in web/controllers/hello_controller.ex
+11. Create Hello_View in web/views/hello_view.ex
+12. Create Hello World template in web/templates/hello/world.html.eex
+13. Rework web/router.ex to include dynamic routes
+14. Rework def world to map the inbound name parameter in web/controllers/hello_controller.ex
+
 ##To start your Phoenix app:
 
   1. Install dependencies with `mix deps.get`
