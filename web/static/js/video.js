@@ -40,7 +40,9 @@ let Video = {
     // handles new events sent by the server
     // when users post new annotations, the server broadcasts new events to the client
     // calls render function after receiving annotation
+    // adds last_seen_id paramater to avoid fetching and rendering duplicate date
     vidChannel.on("new_annotation", (resp) => {
+      vidChannel.params.last_seen_id = resp.id;
       this.renderAnnotation(msgContainer, resp)
     })
     
@@ -58,10 +60,15 @@ let Video = {
     
     // joins the vidChannel to the client
     // logs the confirmation or error message
+    // establishes an id for videos
     vidChannel.join()
       // .receive("ok", resp => console.log("joined the video channel", resp) )
       .receive("ok", resp => {
-        this.scheduleMessages(msgContainer, resp.annotations)
+        let ids = resp.annotations.map(ann => ann.id);
+        if(ids.length > 0){
+          vidChannel.params.last_seen_id = Math.max(...ids)
+        }
+        this.scheduleMessages(msgContainer, resp.annotations);
         console.log("joined the video channel", resp)
       })
       .receive("error", reason => console.log("failed to join the video channel", reason) )
