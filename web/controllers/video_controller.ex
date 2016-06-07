@@ -1,6 +1,5 @@
 defmodule Rumbl.VideoController do
   use Rumbl.Web, :controller
-
   alias Rumbl.Video
   alias Rumbl.Category
 
@@ -87,10 +86,6 @@ defmodule Rumbl.VideoController do
   defp user_videos(user) do
     assoc(user, :videos)
   end
-
-  alias Rumbl.Category
-
-  plug :load_categories when action in [:new, :create, :edit, :update]
 
   # creates load_categories plug based on functions in Category model
   # builds a query and passes it to Repo
