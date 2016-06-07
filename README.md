@@ -8,17 +8,16 @@ Phoenix Rumbl App based on code from [Programming Phoenix]( https://pragprog.com
 
 ##Part II: Writing Interactive and Maintainable Applications
 ###Chapter 10 - Using Channels - Page 186
-1. Create ES6 video object
-2. Update video player to use video object in web/static/js/app.js
-3. Refactor a web/static/js/socket.js to establish a socket connection
-4. Add channel definition in web/channels/user_socket.ex
-5. Build a Channel Module to process incoming events
+1. Create ES6 video object in web/static/js/video.js
+2. Update web/static/js/app.js to compensate for video initialization in web/static/js/video.js
+3. Refactor web/static/js/socket.js to establish and export a socket object
+4. Add video channel definition in web/channels/user_socket.ex
+5. Build a Channel Module to process incoming events in web/channels/video_channel.ex
 6. Join the channel to the client in web/static/js/video.js
-7. Add message pings to join function in web/channels/video_channel.ex
+7. TEST: Add message pings to def join() in web/channels/video_channel.ex
 8. Add server-side function call to web/static/js/video.js
 9. Add client-side event handling and annotation rendering to web/static/js/video.js
-10. Connect conversation to the server-side in web/channels/video_channel.ex
-
+10. Rework web/channels/video_channel.ex to broadcast new_annotation events to all the clients
 
 ###Chapter 9 - Watching Videos
 1. Add link to "My Videos" in web/templates/layout/app.html.eex
