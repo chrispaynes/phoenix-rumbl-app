@@ -11,16 +11,19 @@ defmodule Rumbl do
 
     children = [
       supervisor(Rumbl.Endpoint, []),
+      supervisor(Rumbl.InfoSys.Supervisor, []), 
       supervisor(Rumbl.Repo, []),
-      worker(Rumbl.Counter, [5]),
+      # worker(Rumbl.Counter, [5]),
       # Here you could define other workers and supervisors as children
       # worker(Rumbl.Worker, [arg1, arg2, arg3]),
+      # worker(Rumbl.Counter, [5], restart: :permanent OR :temporary OR :transient),
     ]
 
     # this details the OTP Supervision Strategy
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
     # for other strategies and supported options
-    # ":one_for_one" indicates 1 child will be restarted if 1 dies 
+    # ":one_for_one" indicates 1 child will be restarted if 1 dies
+    # strategy: :one_for_all OR :one_for_one OR rest_for_one OR simple_one_for_one 
     opts = [strategy: :one_for_one, name: Rumbl.Supervisor]
     Supervisor.start_link(children, opts)
   end
