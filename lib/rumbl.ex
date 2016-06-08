@@ -11,7 +11,7 @@ defmodule Rumbl do
 
     children = [
       supervisor(Rumbl.Endpoint, []),
-      supervisor(Rumbl.InfoSys.Supervisor, []), 
+      supervisor(Rumbl.InfoSys.Supervisor, []),
       supervisor(Rumbl.Repo, []),
       # worker(Rumbl.Counter, [5]),
       # Here you could define other workers and supervisors as children
