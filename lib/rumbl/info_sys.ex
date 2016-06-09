@@ -41,8 +41,15 @@ defmodule Rumbl.InfoSys do
   # uses recursive accumulation
   # accepts a list of results to processe
   # reduces the children one by one  
-  defp await_results(children, _opts) do
-    await_result(children, [], :infinity)
+  # retrieves the timeout option
+  # sends itself a message after the timeout value
+  # on each timeout, it kills the timed-out backend and moves to the next backend
+  defp await_results(children, opts) do
+    timeout = opts[:timeout] || 5000
+    timer = Process.send_after(self(), :timedout, timeout)
+    results = await_result(children, [], :infinity)
+    cleanup(timer)
+    results
   end
 
   # recurses over all spawned backends
@@ -60,11 +67,35 @@ defmodule Rumbl.InfoSys do
         await_result(tail, results ++ acc, timeout)
         {:DOWN, ^monitor_ref, :process, ^pid, _reason} ->
           await_result(tail, acc, timeout)
+        :timedout ->
+          kill(pid, monitor_ref)
+          await_result(tail, acc, 0)
+    after 
+      timeout ->
+        kill(pid, monitor_ref)
+        await_result(tail, acc, 0)
     end
   end
 
   defp await_result([], acc, _) do
     acc
+  end
+
+  # kills the backend process and removes the monitor
+  defp kill(pid, ref) do
+    Process.demonitor(ref, [:flush])
+    Process.exit(pid, :kill)
+  end
+
+  # uses erlang to cancel the timer if it was already triggered
+  # removes :timeout message from inbox if it was sent
+  defp cleanup(timer) do
+    :erlang.cancel_timer(timer)
+    receive do
+      :timedout -> :ok
+    after
+      0 -> :ok
+    end
   end
 
 end
