@@ -7,7 +7,33 @@ Phoenix Rumbl App based on code from [Programming Phoenix]( https://pragprog.com
 
 
 ##Part II: Writing Interactive and Maintainable Applications
-###Chapter 10 - Using Channels - Page 186
+
+###Chapter 12 - Observer and Umbrellas
+
+###Chapter 11 - OTP
+1. Create a counter server in lib/rumbl/counter.ex
+2. Modify lib/rumbl/counter.ex to use OTP
+3. Add the Counter server to the Rumbl's application supervision tree in lib/rumbl.ex
+4. Add def handle_info() callback to lib/rumbl/counter.ex
+5. Implement protocol to crash the counter in lib/rumbl/counter.ex
+6. Create the InfoSys Supervisor in lib/rumbl/info_sys/supervisor.ex
+7. Add the InfoSys Supervisor to Rumbl's supervision tree in lib/rumbl.ex
+8. Create the proxy in lib/rumbl/info_sys.ex
+9. Add :sweet_xml parser to mix.exs
+10 Run Mix.deps get to grab Hex dependency
+11. Visit the WolframAlpha Developer Portal and signup for an account. Retrieve an AppID/Developer API Key
+12. Create config/dev.secret.exs and input the API Key
+13. Add "/config/dev.secret.exs" to the .gitignore file
+14. Import dev.secret.exs into config/dev.exs
+14. Implement the Wolfram backend in lib/rumbl/infy_sys/wolfram.ex
+15. Refactor Rumbl.InfoSys to collect results and ignore crashed backends in lib/rumbl/info_sys.ex
+16. Add monitoring and timeouts to lib/rumbl/info_sys.ex
+17. Integrate Rumbl.InfoSys into the video_channel in web/channels/video_channel.ex
+18. Seed the database with a "wolfram" user in priv/repo/seeds.exs
+19. Mix run the backend seeds
+
+
+###Chapter 10 - Using Channels
 1. Create ES6 video object in web/static/js/video.js
 2. Update web/static/js/app.js to compensate for video initialization in web/static/js/video.js
 3. Refactor web/static/js/socket.js to establish and export a socket object
