@@ -11,7 +11,7 @@ defmodule InfoSys.Supervisor do
   # begins worker supervision
   def init(_opts) do
     children = [
-      worker(Rumbl.InfoSys, [], restart: :temporary)
+      worker(InfoSys, [], restart: :temporary)
     ]
 
     supervise children, strategy: :simple_one_for_one

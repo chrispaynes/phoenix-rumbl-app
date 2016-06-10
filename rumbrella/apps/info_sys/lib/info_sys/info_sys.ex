@@ -1,6 +1,6 @@
 defmodule InfoSys do
   # a listing of supported backends
-  @backends [Rumbl.InfoSys.Wolfram]
+  @backends [InfoSys.Wolfram]
 
   # defines the struct to hold search results
   defmodule Result do
@@ -33,7 +33,7 @@ defmodule InfoSys do
   defp spawn_query(backend, query, limit) do
     query_ref = make_ref()
     opts = [backend, query, query_ref, self(), limit]
-    {:ok, pid} = Supervisor.start_child(Rumbl.InfoSys.Supervisor, opts)
+    {:ok, pid} = Supervisor.start_child(InfoSys.Supervisor, opts)
     monitor_ref = Process.monitor(pid)
     {pid, monitor_ref, query_ref}
   end

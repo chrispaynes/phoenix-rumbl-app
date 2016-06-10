@@ -2,7 +2,7 @@ defmodule InfoSys.Wolfram do
   # parses XML
   import SweetXml
   # Result holds the struct for incoming data
-  alias Rumbl.InfoSys.Result
+  alias InfoSys.Result
 
   # specifies the module to invoke and arguments to pass
   # designates ":fetch" as the task
