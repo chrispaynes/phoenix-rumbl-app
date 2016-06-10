@@ -9,6 +9,18 @@ Phoenix Rumbl App based on code from [Programming Phoenix]( https://pragprog.com
 ##Part II: Writing Interactive and Maintainable Applications
 
 ###Chapter 12 - Observer and Umbrellas
+1. Create the Rumbrella umbrella project outside of the rumble app
+> <b>Inside of the Rumbrella App</b>
+2. Mix a new info_sys supervision tree
+3. Replace the supervisor in rumbrella/apps/info_sys/lib/info_sys.ex
+4. Rename the Rumbl.InfoSys module in rumbl/apps/info_sys/lib/info_sys.ex
+5. Move rumbl/lib/rumbl/info_sys.ex to rumbrella/apps/info_sys/lib/info_sys.ex
+6. Rename the Rumbl.InfoSys.Supervisor module in rumbl/lib/rumbl/info_sys/supervisor.ex
+7. Move rumbl/lib/rumbl/info_sys/supervisor.ex to rumbrella/apps/info_sys/lib/info_sys/supervisor.ex
+8. Rename the Rumbl.InfoSys.Wolfram module in rumbl/lib/rumbl/info_sys/wolfram.ex
+9. Move rumbl/lib/rumbl/info_sys/wolfram.ex to rumbrella/apps/info_sys/lib/info_sys/wolfram.ex
+10. Add def start() and "use application" to rumbrella/apps/info_sys/lib/info_sys/wolfram.ex
+11. Find all occurrences of "Rumbl.InfoSys" and replace with "InfoSys"
 
 ###Chapter 11 - OTP
 1. Create a counter server in lib/rumbl/counter.ex
